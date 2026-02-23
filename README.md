@@ -15,7 +15,22 @@ Sistema di autentificazione sviluppato in PHP e MySQL, con gestione sicura delle
 
 ## Struttura del progetto
 
-<pre> ```text app/ bootstrap.php auth.php db.php helpers.php config.example.php public/ register.php login.php dashboard.php logout.php index.php assets/ ``` </pre>
+Il progetto è organizzato in due aree principali:
+
+- **app/** → contiene la logica applicativa e i componenti backend:
+  - `bootstrap.php` inizializza l’applicazione
+  - `auth.php` gestisce autenticazione e protezione delle rotte
+  - `db.php` crea la connessione PDO
+  - `helpers.php` contiene funzioni di utilità (escape, flash)
+  - `config.example.php` esempio di configurazione locale
+
+- **public/** → contiene le pagine accessibili dal browser:
+  - `register.php`
+  - `login.php`
+  - `dashboard.php`
+  - `logout.php`
+  - `index.php`
+  - cartella `assets/` per CSS e immagini
 ---
 
 ## Stack Tecnologico 
