@@ -1,0 +1,14 @@
+# Config locale (contiene credenziali)
+app/config.php
+
+# MacOS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Log eventuali
+*.log
+
+# File temporanei
+*.tmp

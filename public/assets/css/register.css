@@ -1,0 +1,176 @@
+/* ========= Base ========= */
+:root{
+  --overlay: rgba(10, 12, 18, .62);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+
+  --card-bg: rgba(255,255,255,.10);
+  --card-stroke: rgba(255,255,255,.18);
+  --shadow: 0 18px 50px rgba(0,0,0,.38);
+
+  --input-bg: rgba(255,255,255,.14);
+  --input-stroke: rgba(255,255,255,.22);
+  --input-stroke-focus: rgba(255,255,255,.45);
+
+  --danger: rgba(255, 95, 95, .95);
+  --success: rgba(120, 255, 190, .95);
+
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+
+  /* Artwork background */
+  background:
+    radial-gradient(1200px 700px at 18% 10%, rgba(255,255,255,.10), transparent 55%),
+    radial-gradient(900px 600px at 92% 80%, rgba(255,120,0,.10), transparent 60%),
+    linear-gradient(var(--overlay), var(--overlay)),
+    url("/assets/images/register.jpg") center / cover no-repeat fixed;
+
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+/* ========= Flash messages ========= */
+.flash--success{ 
+    border-color: rgba(120,255,190,.35); 
+    color: rgba(220,255,240,.95); 
+}
+
+.flash--error{ 
+    border-color: rgba(255,95,95,.35); 
+    color: rgba(255,210,210,.95); 
+}
+
+.flash{
+  width: min(440px, 100%);
+  margin: 0 0 10px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(12px);
+  color: var(--muted);
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+
+/* ========= Title ========= */
+h1{
+  width: min(440px, 100%);
+  margin: 6px 0 14px 0;
+  text-align: center;
+  font-size: 2.75rem;
+  letter-spacing: .2px;
+  font-weight: 700;
+}
+
+/* ========= Form card ========= */
+form{
+  width: min(440px, 100%);
+  padding: 26px 22px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+
+  display: grid;
+  gap: 12px;
+}
+
+/* ========= Fields ========= */
+label{
+  font-size: .92rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-stroke);
+  outline: none;
+
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+input:focus{
+  border-color: var(--input-stroke-focus);
+  background: rgba(255,255,255,.18);
+}
+
+small{
+  display: block;
+  margin-top: -6px; 
+  color: var(--danger);
+  font-size: .86rem;
+  line-height: 1.2;
+}
+
+/* ========= Button ========= */
+button{
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 12px;
+
+  color: rgba(10, 12, 18, .92);
+  font-weight: 750;
+  letter-spacing: .2px;
+
+  background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.70));
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+
+  cursor: pointer;
+  transition: transform .16s ease, filter .16s ease;
+}
+
+button:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+button:active{
+  transform: translateY(0);
+}
+
+/* ========= Link sotto al form ========= */
+form + p{
+  width: min(440px, 100%);
+  margin: 12px 0 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+a{
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.35);
+}
+
+a:hover{
+  border-bottom-color: rgba(255,255,255,.70);
+}
+
+/* ========= Mobile ========= */
+@media (max-width: 420px){
+  form{ padding: 22px 18px; }
+  h1{ font-size: 1.15rem; }
+}
+
