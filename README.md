@@ -15,20 +15,7 @@ Sistema di autentificazione sviluppato in PHP e MySQL, con gestione sicura delle
 
 ## Struttura del progetto
 
-app/
-bootstrap.php
-auth.php
-db.php
-helpers.php
-config.example.php
-
-public/
-register.php
-login.php
-dashboard.php
-logout.php
-index.php
-assets/
+<pre> ```text app/ bootstrap.php auth.php db.php helpers.php config.example.php public/ register.php login.php dashboard.php logout.php index.php assets/ ``` </pre>
 ---
 
 ## Stack Tecnologico 
