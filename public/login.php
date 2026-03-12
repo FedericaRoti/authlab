@@ -47,7 +47,9 @@ $error   = flash('flash_error');
 <head>
   <meta charset="utf-8">
   <title>Login</title>
-  <link rel="stylesheet" href="/assets/css/login.css">
+  <link rel="stylesheet" href="/assets/css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Login</h1>

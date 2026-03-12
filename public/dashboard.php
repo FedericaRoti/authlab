@@ -15,11 +15,14 @@ $user = current_user();
   <meta charset="utf-8">
   <title>Dashboard</title>
   <link rel="stylesheet" href="/assets/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
 
   <div class="layout">
-    <aside class="art-rail" aria-hidden="true"></aside>
+    <aside class="art-rail" aria-hidden="true"><span class="art-rail-label">AuthLab</span></aside>
 
     <main class="panel">
       <header class="panel__header">

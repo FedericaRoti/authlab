@@ -48,7 +48,10 @@ $error   = flash('flash_error');
 <!doctype html>
 <html>
 <head><meta charset="utf-8"><title>Register</title>
-<link rel="stylesheet" href="/assets/css/register.css">
+<link rel="stylesheet" href="/assets/css/auth.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
   <?php if ($success): ?><p class="flash flash--success"><?= e($success) ?></p><?php endif; ?>

@@ -1,0 +1,206 @@
+/* ========= Variables ========= */
+:root {
+  --bg:                #0a0e1a;
+  --accent:            #c8f060;
+  --accent-glow:       rgba(200, 240, 96, 0.12);
+  --accent-glow-core:  rgba(200, 240, 96, 0.06);
+  --grid-line:         rgba(200, 240, 96, 0.04);
+  --text:              rgba(255, 255, 255, .92);
+  --muted:             rgba(255, 255, 255, .55);
+  --card-bg:           rgba(255, 255, 255, .07);
+  --card-stroke:       rgba(255, 255, 255, .12);
+  --shadow:            0 24px 60px rgba(0, 0, 0, .5);
+  --input-bg:          rgba(255, 255, 255, .08);
+  --input-stroke:      rgba(255, 255, 255, .14);
+  --input-stroke-focus:rgba(200, 240, 96, .5);
+  --danger:            rgba(255, 95, 95, .95);
+  --success:           rgba(120, 255, 190, .95);
+  --radius:            14px;
+  --mono:              'DM Mono', ui-monospace, monospace;
+  --sans:              'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+/* ========= Background CSS puro ========= */
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* Base scuro */
+  background-color: var(--bg);
+
+  /* Griglia sottile verde */
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Glow centrale dietro il form */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse at center,
+    var(--accent-glow) 0%,
+    var(--accent-glow-core) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Tutti gli elementi sopra gli pseudo-elementi */
+body > * { position: relative; z-index: 1; }
+
+/* ========= Title ========= */
+h1 {
+  width: min(420px, 100%);
+  margin: 8px 0 14px 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ========= Form — glassmorphism invariato ========= */
+form {
+  width: min(420px, 100%);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: grid;
+  gap: 12px;
+}
+
+/* ========= Flash messages ========= */
+.flash {
+  width: min(420px, 100%);
+  margin: 0 0 10px 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  backdrop-filter: blur(12px);
+  color: var(--muted);
+  text-align: center;
+  font-size: .88rem;
+  font-family: var(--mono);
+}
+.flash--success {
+  border-color: rgba(120, 255, 190, .3);
+  color: rgba(200, 255, 230, .9);
+}
+.flash--error {
+  border-color: rgba(255, 95, 95, .3);
+  color: rgba(255, 200, 200, .9);
+}
+
+/* ========= Fields ========= */
+label {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-stroke);
+  outline: none;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 300;
+  transition: border-color .2s ease, background .2s ease;
+}
+input:focus {
+  border-color: var(--input-stroke-focus);
+  background: rgba(200, 240, 96, .05);
+}
+input::placeholder { color: rgba(255, 255, 255, .25); }
+
+small {
+  display: block;
+  margin-top: -4px;
+  color: var(--danger);
+  font-size: .82rem;
+  font-family: var(--mono);
+}
+
+/* ========= Button ========= */
+button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0a0e1a;
+  font-family: var(--mono);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity .2s, transform .2s;
+}
+button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ========= Link sotto al form ========= */
+form + p {
+  width: min(420px, 100%);
+  margin: 14px 0 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .88rem;
+  font-family: var(--mono);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200, 240, 96, .3);
+  transition: border-color .2s;
+}
+a:hover { border-color: var(--accent); }
